@@ -10,7 +10,7 @@ const TopPage = () => {
         fetchGetData().then(res => {
             setGlobalState({
                 type: GET_DATA,
-                data: res.data
+                data: res.data.slice(0, 5)
             })
         })
     }, [])
@@ -22,9 +22,13 @@ const TopPage = () => {
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {
                     globalState.user_data.map((user, index) => {
-                        return (
-                            <Card user={user} key={index} />
-                        )
+                        if (index < 5) {
+                            return (
+                                <Card user={user} key={index} />
+                            )
+                        } else {
+                            return null // 条件に合わない場合は何も表示しない
+                        }
                     })
                 }
             </div>
