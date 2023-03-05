@@ -1,49 +1,29 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-
-const useStyles = makeStyles({
-    root: {
-        minWidth: 275,
-        width: 300,
-        border: '1px solid #ccc',
-        margin: '3px'
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-});
+import React from 'react';
 
 export default function SimpleCard({ user }) {
-    const classes = useStyles();
-
     return (
-        <Card className={classes.root}>
+        <Card sx={{ width: 275, marginX: 1, marginY: 1 }}>
             <CardContent>
-                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     ID : {user.id}
                 </Typography>
-                <Typography variant="h5" component="h2">
+                <Typography variant="h5" component="div">
                     Name : {user.name}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     NickName : {user.username}
                 </Typography>
-                <Typography variant="body2" component="p">
+                <Typography variant="body2">
                     email : {user.email}
                 </Typography>
-                <Typography variant="body2" component="p">
-                    zip-code : {user.address.zipcode}
+                <Typography variant="body3">
+                    address :{user.address.zipcode}
+                </Typography>
+                <Typography variant="body4">
+                    address :{user.address.geo.lat}
                 </Typography>
             </CardContent>
         </Card>
