@@ -3,24 +3,21 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
-export default function SimpleCard({ user }) {
+export default function SimpleCard({ comments }) {
     return (
         <Card sx={{ width: 275, marginX: 1, marginY: 1 }}>
             <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    ID : {user.id}
+                    ID : {comments.id}
                 </Typography>
                 <Typography variant="h5" component="div">
-                    Name : {user.name}
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    NickName : {user.username}
+                    Name : {comments.name}
                 </Typography>
                 <Typography variant="body2">
-                    email : {user.email}
+                    email : {comments.email}
                 </Typography>
                 <Typography variant="body3">
-                    address :{user.address.zipcode}
+                    body :{comments.body}
                 </Typography>
             </CardContent>
         </Card>
